@@ -3,13 +3,16 @@ A = dlmread('traffic.txt');
 average_vel = (sum(sum(A)) + sum(sum(A<0)))/(m*sum(A(1, :)>=0))
 %spy(A)
 %sum(A(149,:))
-cspy(A+1, 'ColorMap', 'winter', 'Level', 5)
+cspy(A+1, 'ColorMap', 'gray', 'Level', 5)
+c = flipud(gray);
+colormap(c);
 xlabel("x")
 ylabel("t")
 set(gca,'xtick',[0, m])
 set(gca,'xticklabel',[0, m])
 set(gca,'ytick',[0, n])
 set(gca,'yticklabel',[0, n])
+caxis([0 5]);
 axis tight
 
 %sum(A(13, :)) + sum(A(13, :) < 0)
